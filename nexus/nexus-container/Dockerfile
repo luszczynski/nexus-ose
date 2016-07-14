@@ -2,17 +2,19 @@ FROM rhel7
 
 EXPOSE 8081
 
-ENV NEXUS_VERSION 2.11.4-01
+ENV NEXUS_VERSION 2.13.0-01
 ENV NEXUS_HOME /opt/nexus/nexus
 ENV NEXUS_WORK /sonatype-work
 ENV NEXUS_REPOS /repositories
 
-RUN cd /var/tmp \
-  && curl --fail --silent --location --retry 3 -O \
-  --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
-  http://download.oracle.com/otn-pub/java/jdk/7u76-b13/jdk-7u76-linux-x64.rpm \
-  && rpm -Ui jdk-7u76-linux-x64.rpm \
-  && rm -rf jdk-7u76-linux-x64.rpm
+RUN yum install -y unzip gzip tar java-1.8.0-openjdk java-1.8.0-openjdk-devel 
+
+#RUN cd /var/tmp \
+#  && curl --fail --silent --location --retry 3 -O \
+#  --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
+#  http://download.oracle.com/otn-pub/java/jdk/7u76-b13/jdk-7u76-linux-x64.rpm \
+#  && rpm -Ui jdk-7u76-linux-x64.rpm \
+#  && rm -rf jdk-7u76-linux-x64.rpm
 
 # Install jq
 RUN curl --fail --silent --location --retry 3 \
