@@ -42,7 +42,7 @@
             "source": {
                "type": "Git",
                "git": {
-                  "uri": "https://github.com/rafaeltuelho/nexus-ose",
+                  "uri": "https://github.com/luszczynski/nexus-ose",
                   "ref": "master"
                },
                "contextDir": "nexus/nexus-container"
