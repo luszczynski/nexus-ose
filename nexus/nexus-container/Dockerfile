@@ -7,7 +7,8 @@ ENV NEXUS_HOME /opt/nexus/nexus
 ENV NEXUS_WORK /sonatype-work
 ENV NEXUS_REPOS /repositories
 
-RUN yum-config-manager --disable rhel-7-fast-datapath-htb-rpms && yum install -y unzip gzip tar java-1.8.0-openjdk java-1.8.0-openjdk-devel 
+RUN yum-config-manager --disable rhel-7-fast-datapath-htb-rpms && yum-config-manager --save --setopt=rhel-7-fast-datapath-htb-rpms.skip_if_unavailable=true
+RUN yum install -y unzip gzip tar java-1.8.0-openjdk java-1.8.0-openjdk-devel 
 
 #RUN cd /var/tmp \
 #  && curl --fail --silent --location --retry 3 -O \
